@@ -1,4 +1,3 @@
-import React from 'react'
 import TopImages from '../../components/common/TopImages'
 import galleryImg from "../../assets/images/gallery/gallery.jpg"
 import Images from './components/Images'
