@@ -1,13 +1,13 @@
 import React from 'react';
 import ContactImg from "../../assets/images/contact/contact.jpg";
-import TopImages from '../../components/common/TopImages';
+import HeaderSection from '../../components/common/HeaderSection';
 
 
 const Contact: React.FC = () => {
     return (
         <div>
-            <TopImages
-                img={ContactImg}
+            <HeaderSection
+                img={ ContactImg }
                 title="Contact Us"
                 desc="Do you want to enquire about our pricing, currect offers and arrangements we can help with? Give us a callor send in your concerns through the form below"
             />
@@ -52,10 +52,10 @@ const Contact: React.FC = () => {
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="email" placeholder="Email" />
-                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" maxLength={10} type="tel" placeholder="Contact Number" />
+                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" maxLength={ 10 } type="tel" placeholder="Contact Number" />
                                         </div>
                                         <div>
-                                            <textarea className="w-full p-4 border border-gray-500 mb-3" rows={4} placeholder="Your message here..."></textarea>
+                                            <textarea className="w-full p-4 border border-gray-500 mb-3" rows={ 4 } placeholder="Your message here..."></textarea>
                                         </div>
                                         <div className="flex justify-center">
                                             <input className="py-2 px-20 bg-gray-700 text-white uppercase font-semibold cursor-pointer" type="submit" value="Send" />

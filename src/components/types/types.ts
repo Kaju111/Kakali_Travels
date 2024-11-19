@@ -22,3 +22,9 @@ export interface ImageGalleryProps {
   mainImages : any;
   smallImages: any;
 }
+
+export interface HeaderImagesProps {
+    img: string;
+    title: string;
+    desc: string;
+}

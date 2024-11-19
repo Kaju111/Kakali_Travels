@@ -1,7 +1,8 @@
 import React from "react";
-import Logo from "../../../assets/images/logo/logo.png" 
+import Logo from "../../../assets/images/logo/logo.png"
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { currentYear } from "../../../utils/dateUtils";
 
 
 export const Footer: React.FC = () => (
@@ -10,7 +11,7 @@ export const Footer: React.FC = () => (
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div>
           <div className="flex justify-center sm:justify-start">
-            <img src={Logo} alt="Logo" width={130} height={50} />
+            <img src={ Logo } alt="Logo" width={ 130 } height={ 50 } />
           </div>
 
           <p className="max-w-md mx-auto mt-6 leading-relaxed text-center  sm:max-w-xs sm:mx-0 sm:text-left">
@@ -171,7 +172,7 @@ export const Footer: React.FC = () => (
                   </svg>
 
                   <span className=" transition group-hover:/75">
-                    john@doe.com
+                    contact@kakalitravels.com
                   </span>
                 </a>
               </li>
@@ -235,7 +236,7 @@ export const Footer: React.FC = () => (
       <div className="pt-6 mt-12 border-t border-gray-800">
         <div className="text-center">
           <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-            Copyright &copy; 2025 Kakali Travels | Powered by Kakali Travels
+            Copyright &copy; { currentYear } Kakali Travels | Powered by Kakali Travels
           </p>
         </div>
       </div>
