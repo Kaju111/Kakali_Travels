@@ -13,6 +13,8 @@ import createStore from "react-auth-kit/createStore";
 import router from "./router";
 import { theme } from "./theme";
 import "./utils/style.css"
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
@@ -37,11 +39,11 @@ const store = createStore({
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <AuthProvider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
+    <AuthProvider store={ store }>
+      <QueryClientProvider client={ queryClient }>
+        <ThemeProvider theme={ theme }>
           <CssBaseline />
-          <RouterProvider router={router} />
+          <RouterProvider router={ router } />
           <Toaster />
         </ThemeProvider>
       </QueryClientProvider>

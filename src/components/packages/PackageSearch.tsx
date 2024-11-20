@@ -1,16 +1,24 @@
 import { useEffect, useRef, useState } from 'react'
 import { MapPin, Search, Users, Minus, Plus, CalendarArrowUp, CalendarArrowDown } from 'lucide-react'
 import PromotionalBanners from './PromotionalBanners'
+import { DateRange } from 'react-date-range';
 
 export default function PackageSearch() {
-    const [checkIn, setCheckIn] = useState('')
-    const [checkOut, setCheckOut] = useState('')
     const [isGuestOpen, setIsGuestOpen] = useState(false)
     const [adults, setAdults] = useState(1)
     const [children, setChildren] = useState(0)
     const [rooms, setRooms] = useState(1)
+    const [isDateRangeOpen, setIsDateRangeOpen] = useState(false);
+    const [state, setState] = useState([
+        {
+            startDate: new Date(),
+            endDate: new Date(),
+            key: 'selection',
+        },
+    ]);
 
     const guestDropdownRef = useRef<HTMLDivElement>(null)
+    const dateRangeRef = useRef<HTMLDivElement>(null);
 
     const toggleGuestDropdown = () => setIsGuestOpen(!isGuestOpen)
 
@@ -27,6 +35,9 @@ export default function PackageSearch() {
             if (guestDropdownRef.current && !guestDropdownRef.current.contains(event.target as Node)) {
                 setIsGuestOpen(false)
             }
+            if (dateRangeRef.current && !dateRangeRef.current.contains(event.target as Node)) {
+                setIsDateRangeOpen(false);
+            }
         }
 
         document.addEventListener('mousedown', handleClickOutside)
@@ -35,6 +46,7 @@ export default function PackageSearch() {
             document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [])
+
 
     return (
         <section className="relative w-full overflow-hidden -mt-[7rem]">
@@ -59,19 +71,29 @@ export default function PackageSearch() {
                                     />
                                 </div>
                             </div>
-                            <div className="flex flex-1 items-center gap-2">
-                                <div className="relative w-full">
-                                    <input
-                                        type="date"
-                                        className="w-full appearance-none bg-transparent py-2 pl-8 pr-4 outline-none placeholder:text-gray-400"
-                                        placeholder="Check in"
-                                        value={ checkIn }
-                                        onChange={ (e) => setCheckIn(e.target.value) }
-                                    />
-                                    <CalendarArrowUp className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-                                </div>
+                            <div className='relative' ref={ dateRangeRef }>
+                                <button
+                                    onClick={ () => setIsDateRangeOpen(!isDateRangeOpen) }
+                                    className='w-full flex items-center gap-2 py-2 pl-4 pr-2 bg-transparent outline-none'
+                                >
+                                    <CalendarArrowUp className='h-4 w-4' />
+                                    <span>{ state[0].startDate.toLocaleDateString() } - </span>
+                                    <CalendarArrowDown className='h-4 w-4' />
+                                    <span>{ state[0].endDate.toLocaleDateString() }</span>
+                                </button>
+                                { isDateRangeOpen && (
+                                    <div className='absolute left-0 mt-2 z-10'>
+                                        <DateRange
+                                            editableDateInputs={ true }
+                                            onChange={ (item: any) => setState([item.selection]) }
+                                            moveRangeOnFirstSelection={ false }
+                                            ranges={ state }
+                                        />
+                                    </div>
+                                ) }
                             </div>
-                            <div className="flex flex-1 items-center gap-2">
+
+                            {/* <div className="flexx items-center gap-2">
                                 <div className="relative w-full">
                                     <input
                                         type="date"
@@ -82,7 +104,7 @@ export default function PackageSearch() {
                                     />
                                     <CalendarArrowDown className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="flex flex-1 items-center gap-2">
                                 <div className="relative w-full" ref={ guestDropdownRef }>
                                     <button

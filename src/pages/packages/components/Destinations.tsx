@@ -64,30 +64,30 @@ const Destinations: React.FC = () => {
             <h1 className="font-secondary text-3xl py-9">Top Destinations</h1>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {destinationsData.map((card) => (
+                { destinationsData.map((card) => (
                     <figure
-                        key={card.id}
-                        className="snip1200 relative overflow-hidden text-white font-['Raleway'] bg-black shadow-lg transition-all ease-in-out duration-1000 w-full h-[300px] group"
+                        key={ card.id }
+                        className="snip1200 relative overflow-hidden text-white font-['Raleway'] bg-black shadow-lg rounded-xl transition-all ease-in-out duration-1000 w-full h-[300px] group"
                     >
                         <img
-                            src={card.imgSrc}
-                            alt={card.alt}
+                            src={ card.imgSrc }
+                            alt={ card.alt }
                             className="w-full h-full object-cover opacity-90 transition-all duration-500 group-hover:opacity-25 group-hover:scale-110"
                         />
                         <figcaption className="absolute top-[45%] left-[7%] right-[7%] bottom-[45%] border border-white border-t-0 transition-all duration-500 group-hover:top-[7%] group-hover:bottom-[7%]">
                             <p className="absolute top-1/2 left-0 right-0 px-5 transform -translate-y-1/2 text-center opacity-0 transition-opacity delay-350 duration-500 ease-in-out group-hover:opacity-100">
-                                {card.description}
+                                { card.description }
                             </p>
                             <div className="heading absolute bottom-0 w-full text-center">
                                 <h2 className="text-lg uppercase font-medium">
-                                    {card.title.split(" ")[0]}{" "}
-                                    <span className="font-bold">{card.title.split(" ")[1]}</span>
+                                    { card.title.split(" ")[0] }{ " " }
+                                    <span className="font-bold">{ card.title.split(" ")[1] }</span>
                                 </h2>
                             </div>
                         </figcaption>
                         <a href="#" className="absolute inset-0 z-10"></a>
                     </figure>
-                ))}
+                )) }
             </div>
         </div>
     );
