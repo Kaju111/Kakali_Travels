@@ -6,6 +6,7 @@ import Img4 from "../../../assets/images/packages/desnination/Destination4.jpg"
 import Img5 from "../../../assets/images/packages/desnination/Destination5.jpg"
 import Img6 from "../../../assets/images/packages/desnination/Destination6.jpg"
 import Card from "../../../components/packages/Card"
+import { RecommendedCategory } from "../../../assets/data/data"
 
 const packagesData = [
     {
@@ -189,16 +190,19 @@ const Recommended = () => {
             <h1 className="font-secondary text-3xl pt-14">Recommended For You</h1>
 
             <div className="flex flex-wrap font-primary font-semibold text-base gap-5 pt-9 justify-center lg:justify-start">
-                <button
-                    onClick={ () => setActiveCategory('packages') }
-                    className={ `py-2 px-6 rounded-md ${activeCategory === 'packages'
-                        ? 'text-white bg-gray-700'
-                        : 'text-gray-700 border border-gray-700'
-                        }` }
-                >
-                    Package
-                </button>
-                <button
+                { RecommendedCategory?.map((item) => (
+                    <button
+                        onClick={ () => setActiveCategory(item.name) }
+                        className={ `py-2 px-6 rounded-md capitalize ${activeCategory === item.name
+                            ? 'text-white bg-gray-700'
+                            : 'text-gray-700 border border-gray-700'
+                            }` }
+                    >
+                        { item.name }
+                    </button>
+                )) }
+
+                {/* <button
                     onClick={ () => setActiveCategory('tickets') }
                     className={ `py-2 px-6 rounded-md ${activeCategory === 'tickets'
                         ? 'text-white bg-gray-700'
@@ -224,7 +228,7 @@ const Recommended = () => {
                         }` }
                 >
                     Accommodation
-                </button>
+                </button> */}
             </div>
 
 

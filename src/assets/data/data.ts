@@ -61,4 +61,19 @@ const facilitiesData = {
   ],
 };
 
-export { staticCarouselData, facilitiesData };
+const RecommendedCategory = [
+  {
+    name:"packages"
+  },
+  {
+    name:"tickets"
+  },
+  {
+    name:"cars"
+  },
+  {
+    name:"accommodations"
+  }
+]
+
+export { staticCarouselData, facilitiesData, RecommendedCategory };
