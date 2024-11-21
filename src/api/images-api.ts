@@ -1,10 +1,9 @@
-// import API from ".";
-// import { AddEmployeeFormValues, IFilterData } from "../utils/types";
+import API from ".";
 
-// export async function addEmployee(data: AddEmployeeFormValues) {
-//   const response = await API.post("EmployeeManagement/add", data);
-//   return response.data;
-// }
+export async function fetchSliderImage() {
+  const response = await API.get("slider-images");
+  return response.data;
+}
 
 // export async function fetchFilters(): Promise<IFilterData> {
 //   const response = await API.post("EmployeeManagement/master");

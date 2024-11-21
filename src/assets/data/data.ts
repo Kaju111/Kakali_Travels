@@ -4,10 +4,10 @@ import hero3 from "../images/home/hero3.png";
 import hero4 from "../images/home/hero4.png";
 import hero5 from "../images/home/hero5.png";
 
-const carouselData = {
+const staticCarouselData = {
   item: [
     {
-      id: "1",
+      id: 1,
       title: "Uncover Your Dream Escape",
       sub_title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
       btn: "Book Your Stay now",
@@ -61,4 +61,4 @@ const facilitiesData = {
   ],
 };
 
-export { carouselData, facilitiesData };
+export { staticCarouselData, facilitiesData };
