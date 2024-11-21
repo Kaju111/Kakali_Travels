@@ -1,8 +1,23 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { carouselData } from "../../../assets/data/data";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+
+interface CarouselItem {
+  id: number;
+  title: string;
+  image_path: string;
+  sub_title: string;
+  imageUrl: string;
+}
+
 
 const HeroSection = () => {
+  const [carouselData, setCarouselData] = useState<CarouselItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -18,6 +33,32 @@ const HeroSection = () => {
     },
   };
 
+
+
+  useEffect(() => {
+    const fetchCarouselData = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/slider-images`
+        );
+        console.log("API Response:", response.data);
+        setCarouselData(response.data); // Assuming API response is the correct structure
+        setLoading(false);
+      } catch (err) {
+        console.error("API Error:", err);
+        setError("Failed to fetch carousel data");
+        setLoading(false);
+      }
+    };
+
+    fetchCarouselData();
+  }, []);
+
+  if (loading) return <div className="text-center mt-10">Loading...</div>;
+  if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
+
+
+
   return (
     <div className="relative h-screen w-full">
       <Carousel
@@ -29,10 +70,10 @@ const HeroSection = () => {
         showDots={false}
         arrows
       >
-        {carouselData?.item.map((item) => (
+        {carouselData?.map((item) => (
           <div key={item.id} className="relative h-screen w-full">
             <img
-              src={item.img}
+              src={item.imageUrl}
               alt={item.title}
               className="w-full h-full object-cover"
             />
@@ -42,10 +83,10 @@ const HeroSection = () => {
                   <h2 className="text-white text-4xl md:text-5xl font-bold mt-4 font-secondary">
                     {item.title}
                   </h2>
-                  <p className="text-white mt-2 text-sm py-3 ">{item.text}</p>
-                  <button className="mt-4 px-6 py-2 bg-white text-black text-sm uppercase">
+                  <p className="text-white mt-2 text-sm py-3 ">{item.sub_title}</p>
+                  {/* <button className="mt-4 px-6 py-2 bg-white text-black text-sm uppercase">
                     {item.btn}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

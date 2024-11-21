@@ -1,61 +1,39 @@
-import hero1 from "../../../assets/images/galleryImage/image9.jpg"
-import hero2 from "../../../assets/images/galleryImage/image6.jpg"
-import hero3 from "../../../assets/images/galleryImage/image10.webp"
-import hero4 from "../../../assets/images/galleryImage/image5.jpg"
-import hero5 from "../../../assets/images/galleryImage/image7.jpg"
-import hero6 from "../../../assets/images/galleryImage/image8.jpg"
 import ImageGallery from '../../../components/ImageGallery';
+import { useEffect, useState } from "react"
+import axios from "axios"
 
-const mainImage = [{
-  src: hero1,
-  alt: 'Main facility image',
-},
-{
-  src: hero2,
-  alt: 'Main facility image',
-},
-]
+interface CarouselItem {
+  id: number;
+  title: string;
+  image_path: string;
+  sub_title: string;
+  imageUrl: string;
+}
 
-const smallImages = [
-  {
-    src: hero3,
-    alt: 'Facility small image 1',
-  },
-  {
-    src: hero4,
-    alt: 'Facility small image 2',
-  },
-  {
-    src: hero5,
-    alt: 'Facility small image 3',
-  },
-  {
-    src: hero6,
-    alt: 'Facility small image 4',
-  },
-  {
-    src: hero1,
-    alt: 'Facility small image 5',
-  },
-  {
-    src: hero4,
-    alt: 'Facility small image 6',
-  },
-  {
-    src: hero3,
-    alt: 'Facility small image 7',
-  },
-  {
-    src: hero5,
-    alt: 'Facility small image 8',
-  },
-  {
-    src: hero6,
-    alt: 'Facility small image 8',
-  },
-];
 
 const Gallery: React.FC = () => {
+
+  const [galleryData, setGalleryData] = useState<CarouselItem[]>([]);
+
+
+  useEffect(() => {
+    const fetchGalleryData = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/gallery-images`
+        );
+        console.log("API Response:", response.data);
+        setGalleryData(response.data); // Assuming API response is the correct structure
+      } catch (err) {
+        console.error("API Error:", err);
+      }
+    };
+
+    fetchGalleryData();
+  }, []);
+
+
+
   return (
     <div className="max-w-6xl mx-auto py-16">
       <section className="flex justify-center items-center flex-col">
@@ -67,7 +45,7 @@ const Gallery: React.FC = () => {
 
       <section>
         <div className="max-w-screen-2xl mx-auto px-4 py-8 lg:py-16 bg-white">
-          <ImageGallery mainImages={ mainImage } smallImages={ smallImages } />
+          <ImageGallery galleryData={galleryData} />
         </div>
       </section>
     </div>
