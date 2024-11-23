@@ -4,7 +4,7 @@ import { SliderImages } from "../../../utils/types";
 import { useQuery } from "@tanstack/react-query";
 import { fetchSliderImage } from "../../../api/images-api";
 import { QUERY_KEYS } from "../../../utils/queryKeys";
-
+import Loader from "../../../components/common/loader/Loader";
 
 const HeroSection = () => {
   // const [carouselData, setCarouselData] = useState<SliderImages[]>([]);
@@ -56,43 +56,43 @@ const HeroSection = () => {
     queryFn: fetchSliderImage,
   });
 
-  if (isLoading) return <div className="text-center mt-10">Loading...</div>;
+  if (isLoading) return <div className="text-center mt-10"><Loader /></div>;
   if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
 
   return (
     <div className="relative h-screen w-full">
       <Carousel
-        responsive={ responsive }
+        responsive={responsive}
         infinite
         autoPlay
-        autoPlaySpeed={ 3000 }
-        transitionDuration={ 2000 }
-        showDots={ false }
+        autoPlaySpeed={3000}
+        transitionDuration={2000}
+        showDots={false}
         arrows
       >
-        { data?.map((item: SliderImages) => (
-          <div key={ item.id } className="relative h-screen w-full">
+        {data?.map((item: SliderImages) => (
+          <div key={item.id} className="relative h-screen w-full">
             <img
-              src={ item.image_path }
-              alt={ item.title }
+              src={item.image_path}
+              alt={item.title}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center md:text-start bg-black bg-opacity-40">
               <div className="w-[95%] md:w-[70%]">
                 <div className="w-[95%] md:w-[55%]">
                   <h2 className="text-white text-4xl md:text-5xl font-bold mt-4 font-secondary">
-                    { item.title }
+                    {item.title}
                   </h2>
-                  <p className="text-white mt-2 text-sm py-3 ">{ item.sub_title }</p>
+                  <p className="text-white mt-2 text-sm py-3 ">{item.sub_title}</p>
                   <button className="mt-4 px-6 py-2 bg-white text-black text-sm uppercase">
-                    {/* {item.btn} */ }
+                    {/* {item.btn} */}
                     Book Your Journey Now
                   </button>
                 </div>
               </div>
             </div>
           </div>
-        )) }
+        ))}
       </Carousel>
     </div>
   );

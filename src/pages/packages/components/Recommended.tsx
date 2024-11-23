@@ -184,63 +184,36 @@ const Recommended = () => {
         }
     };
 
-
+ 
     return (
         <div className="max-w-6xl m-auto flex flex-col items-center justify-center font-primary">
             <h1 className="font-secondary text-3xl pt-14">Recommended For You</h1>
 
             <div className="flex flex-wrap font-primary font-semibold text-base gap-5 pt-9 justify-center lg:justify-start">
-                { RecommendedCategory?.map((item) => (
+                {RecommendedCategory?.map((item) => (
                     <button
-                        onClick={ () => setActiveCategory(item.name) }
-                        className={ `py-2 px-6 rounded-md capitalize ${activeCategory === item.name
+                        onClick={() => setActiveCategory(item.name)}
+                        className={`py-2 px-6 rounded-md capitalize ${activeCategory === item.name
                             ? 'text-white bg-gray-700'
                             : 'text-gray-700 border border-gray-700'
-                            }` }
+                            }`}
                     >
-                        { item.name }
+                        {item.name}
                     </button>
-                )) }
+                ))}
 
-                {/* <button
-                    onClick={ () => setActiveCategory('tickets') }
-                    className={ `py-2 px-6 rounded-md ${activeCategory === 'tickets'
-                        ? 'text-white bg-gray-700'
-                        : 'text-gray-700 border border-gray-700'
-                        }` }
-                >
-                    Tickets
-                </button>
-                <button
-                    onClick={ () => setActiveCategory('cars') }
-                    className={ `py-2 px-6 rounded-md ${activeCategory === 'cars'
-                        ? 'text-white bg-gray-700'
-                        : 'text-gray-700 border border-gray-700'
-                        }` }
-                >
-                    Car
-                </button>
-                <button
-                    onClick={ () => setActiveCategory('accommodations') }
-                    className={ `py-2 px-6 rounded-md ${activeCategory === 'accommodations'
-                        ? 'text-white bg-gray-700'
-                        : 'text-gray-700 border border-gray-700'
-                        }` }
-                >
-                    Accommodation
-                </button> */}
             </div>
 
 
             <div className="container mx-auto py-6 flex flex-row flex-wrap justify-around items-center">
-                { dataToDisplay().map((destination) => (
+                {dataToDisplay().map((destination) => (
                     <Card
-                        key={ destination.id }
-                        imgUrl={ destination.imgUrl }
-                        title={ destination.title }
-                        description={ destination.description }
+                        key={destination.id}
+                        imgUrl={destination.imgUrl}
+                        title={destination.title}
+                        description={destination.description}
                     />
-                )) }
+                ))}
             </div>
         </div>
     );
