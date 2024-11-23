@@ -1,6 +1,9 @@
 import ImageGallery from '../../../components/ImageGallery';
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { useQuery } from '@tanstack/react-query';
+import { fetchGalleryImages } from '../../../api/images-api';
+import { QUERY_KEYS } from '../../../utils/queryKeys';
 
 interface CarouselItem {
   id: number;
@@ -13,24 +16,33 @@ interface CarouselItem {
 
 const Gallery: React.FC = () => {
 
-  const [galleryData, setGalleryData] = useState<CarouselItem[]>([]);
+  // const [galleryData, setGalleryData] = useState<CarouselItem[]>([]);
 
 
-  useEffect(() => {
-    const fetchGalleryData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/gallery-images`
-        );
-        console.log("API Response:", response.data);
-        setGalleryData(response.data); // Assuming API response is the correct structure
-      } catch (err) {
-        console.error("API Error:", err);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchGalleryData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `${import.meta.env.VITE_API_URL}/api/gallery-images`
+  //       );
+  //       console.log("API Response:", response.data);
+  //       setGalleryData(response.data); // Assuming API response is the correct structure
+  //     } catch (err) {
+  //       console.error("API Error:", err);
+  //     }
+  //   };
 
-    fetchGalleryData();
-  }, []);
+  //   fetchGalleryData();
+  // }, []);
+
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: QUERY_KEYS.GALLERY_IMAGES,
+    queryFn: fetchGalleryImages,
+  });
+
+  if (isLoading) return <div className="text-center mt-10">Loading...</div>;
+  if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
 
 
 
@@ -45,7 +57,7 @@ const Gallery: React.FC = () => {
 
       <section>
         <div className="max-w-screen-2xl mx-auto px-4 py-8 lg:py-16 bg-white">
-          <ImageGallery galleryData={galleryData} />
+          <ImageGallery galleryData={ data } />
         </div>
       </section>
     </div>

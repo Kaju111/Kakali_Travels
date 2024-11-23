@@ -27,7 +27,7 @@ const testimonials = [
 const Testimonial = () => {
   return (
     <div>
-      <section className="overflow-hidden relative min-h-screen grid grid-cols-1 lg:grid-cols-12 place-content-center lg:place-items-center lg:gap-16 max-w-7xl mx-auto px-6 py-10">
+      <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-12 place-content-center lg:place-items-center lg:gap-16 max-w-7xl mx-auto px-6 py-10">
         <div className="relative z-10 mb-10 lg:mb-0 col-span-6">
           <div className="hidden xl:block 3xl:hidden absolute top-[-6rem] left-[-5rem] w-64 h-64 bg-red-50 rounded-full"></div>
           <h1 className="relative z-10 sm:text-5xl text-3xl 2xl:text-6xl font-bold sm:leading-snug 2xl:leading-tight font-secondary">

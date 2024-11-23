@@ -3,3 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+  /* background:linear-gradient(#ffffffb9,#ffffffd8), url('https://wanderland.qodeinteractive.com/wp-content/uploads/2019/10/h5-bckg-img-02.jpg?id=1249'); */
+  background-size: contain;
+  background-position: center;
+}

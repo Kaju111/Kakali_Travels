@@ -50,8 +50,8 @@ export const Header: React.FC = () => {
     };
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${hasScrolled ? "bg-white shadow-md" : "backdrop-blur-md bg-black/40"
-                }`}
+            className={ `fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${hasScrolled ? "bg-white shadow-md" : "backdrop-blur-md bg-black/40"
+                }` }
         >
             <div className="relative py-3 font-primary">
                 <nav className="container mx-auto">
@@ -59,50 +59,49 @@ export const Header: React.FC = () => {
                         <div id="logo" className="flex items-center">
                             <a href="/" className="mr-10">
                                 <img
-                                    src={Logo}
+                                    src={ Logo }
                                     alt="Logo"
-                                    width={130}
-                                    height={50}
-                                    className={`transition duration-300 ${hasScrolled ? "" : "filter brightness-200"}`}
+                                    width={ 130 }
+                                    height={ 50 }
+                                    className={ `transition duration-300 ${hasScrolled ? "" : "filter brightness-200"}` }
                                 />
                             </a>
                             <ul
                                 id="nav-links"
                                 className="hidden md:flex md:relative fixed md:align-stretch md:justify-end md:py-0 w-48 md:w-auto h-auto z-10 shadow md:shadow-none"
                             >
-                                {navItems.map((item) => (
-                                    <li key={item.label}>
-                                        {"children" in item ? (
+                                { navItems.map((item) => (
+                                    <li key={ item.label }>
+                                        { "children" in item ? (
                                             item.children.map((child) => (
                                                 <Link
-
-                                                    key={child.label}
-                                                    to={child.href}
-                                                    className={`px-4 py-2 ${isActive(child.href)
+                                                    key={ child.label }
+                                                    to={ child.href }
+                                                    className={ `px-4 py-2 ${isActive(child.href)
                                                         ? "text-blue-500"
                                                         : hasScrolled
                                                             ? "text-black"
                                                             : "text-white"
-                                                        } hover:bg-gray-100 uppercase text-xs`}
+                                                        } hover:bg-gray-100 uppercase text-xs` }
                                                 >
-                                                    {child.label}
+                                                    { child.label }
                                                 </Link>
                                             ))
                                         ) : (
                                             <Link
-                                                to={item.href}
-                                                className={`px-4 py-2 ${isActive(item.href)
+                                                to={ item.href }
+                                                className={ `px-4 py-2 ${isActive(item.href)
                                                     ? "text-blue-500"
                                                     : hasScrolled
                                                         ? "text-black hover:bg-gray-100"
                                                         : "text-white hover:bg-gray-800"
-                                                    }  uppercase text-xs`}
+                                                    }  uppercase text-xs` }
                                             >
-                                                {item.label}
+                                                { item.label }
                                             </Link>
-                                        )}
+                                        ) }
                                     </li>
-                                ))}
+                                )) }
                             </ul>
                         </div>
 
@@ -112,63 +111,63 @@ export const Header: React.FC = () => {
                         <div className="md:hidden flex items-center">
                             <button
                                 id="menu-button"
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                onClick={ () => setIsMenuOpen(!isMenuOpen) }
                                 className="p-1 rounded-full focus:outline-none"
                             >
-                                <MdMenu className={`${hasScrolled ? "text-black" : "text-white"}`} />
+                                <MdMenu className={ `${hasScrolled ? "text-black" : "text-white"}` } />
                             </button>
                         </div>
                     </div>
                 </nav>
-                {isMenuOpen && (
+                { isMenuOpen && (
                     <ul
                         id="nav-links"
                         className="fixed inset-0 bg-white h-screen z-50 flex flex-col items-center px-6 space-y-4 shadow-lg"
                     >
                         <li className="w-full mt-4 flex justify-end pl-6">
                             <button
-                                onClick={() => setIsMenuOpen(false)}
+                                onClick={ () => setIsMenuOpen(false) }
                                 className="py-2 text-lg focus:outline-none"
                             >
                                 <IoMdClose className="h-8 w-8" />
                             </button>
                         </li>
-                        {navItems.map((item) => (
-                            <li key={item.label} className="w-full">
-                                {"children" in item ? (
+                        { navItems.map((item) => (
+                            <li key={ item.label } className="w-full">
+                                { "children" in item ? (
                                     item.children.map((child) => (
                                         <Link
-                                            key={child.label}
-                                            to={child.href}
-                                            onClick={() => setIsMenuOpen(false)}
-                                            className={`block w-full px-4 py-2 mt-3 ${isActive(child.href)
+                                            key={ child.label }
+                                            to={ child.href }
+                                            onClick={ () => setIsMenuOpen(false) }
+                                            className={ `block w-full px-4 py-2 mt-3 ${isActive(child.href)
                                                 ? "text-blue-500 font-bold"
                                                 : hasScrolled
                                                     ? "text-black"
                                                     : "text-black"
-                                                } hover:bg-gray-100 uppercase text-xl`}
+                                                } hover:bg-gray-100 uppercase text-xl` }
                                         >
-                                            {child.label}
+                                            { child.label }
                                         </Link>
                                     ))
                                 ) : (
                                     <Link
-                                        to={item.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className={`block w-full px-4 py-2 mt-3 ${isActive(item.href)
+                                        to={ item.href }
+                                        onClick={ () => setIsMenuOpen(false) }
+                                        className={ `block w-full px-4 py-2 mt-3 ${isActive(item.href)
                                             ? "text-blue-500 font-bold"
                                             : hasScrolled
                                                 ? "text-black"
                                                 : "text-black"
-                                            } hover:bg-gray-100 uppercase text-xl`}
+                                            } hover:bg-gray-100 uppercase text-xl` }
                                     >
-                                        {item.label}
+                                        { item.label }
                                     </Link>
-                                )}
+                                ) }
                             </li>
-                        ))}
+                        )) }
                     </ul>
-                )}
+                ) }
             </div>
         </nav>
     );
