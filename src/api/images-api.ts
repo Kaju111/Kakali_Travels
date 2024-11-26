@@ -6,7 +6,13 @@ export async function fetchSliderImage() {
 }
 
 export async function fetchGalleryImages(){
-  const response = await API.get("gallery-images?limit=10");
+  const response = await API.get("gallery-images");
+  return response.data;
+}
+
+export async function fetchAmenities()
+{
+  const response = await API.get("amenities");
   return response.data;
 }
 

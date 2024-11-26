@@ -1,27 +1,9 @@
-import img1 from "../../../assets/images/galleryImage/image10.webp";
-import img2 from "../../../assets/images/galleryImage/image5.jpg";
-import img3 from "../../../assets/images/galleryImage/image6.jpg";
-import img4 from "../../../assets/images/galleryImage/image7.jpg";
-import img5 from "../../../assets/images/galleryImage/image8.jpg";
-import img6 from "../../../assets/images/galleryImage/image9.jpg";
-import img7 from "../../../assets/images/galleryImage/image10.webp";
-import img8 from "../../../assets/images/galleryImage/image5.jpg";
-import img9 from "../../../assets/images/galleryImage/image6.jpg";
-import img10 from "../../../assets/images/galleryImage/image7.jpg";
-import img11 from "../../../assets/images/galleryImage/image8.jpg";
-import img12 from "../../../assets/images/galleryImage/image9.jpg";
-import img13 from "../../../assets/images/galleryImage/image10.webp";
-import img14 from "../../../assets/images/galleryImage/image5.jpg";
-import img15 from "../../../assets/images/galleryImage/image6.jpg";
-import img16 from "../../../assets/images/galleryImage/image7.jpg";
-import img17 from "../../../assets/images/galleryImage/image8.jpg";
-import img18 from "../../../assets/images/galleryImage/image9.jpg";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { QUERY_KEYS } from "../../../utils/queryKeys";
+import { fetchGalleryImages } from "../../../api/images-api";
+import Loader from "../../../components/common/loader/Loader";
 
-const importedImages = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-    img11, img12, img13, img14, img15, img16, img17, img18,
-];
 
 const Images = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,21 +19,30 @@ const Images = () => {
         setSelectedImage(undefined);
     };
 
+
+    const { data, isLoading, isError } = useQuery({
+        queryKey: QUERY_KEYS.GALLERY_IMAGES,
+        queryFn: fetchGalleryImages,
+    })
+
+    if (isLoading) return <div className="text-center mt-10"><Loader /></div>
+    if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
+
     return (
         <div className="max-w-6xl m-auto px-4">
-            <h1 className="font-secondary text-3xl py-9 text-center">Latest Post</h1>
+            <h1 className="font-secondary text-3xl py-9 text-center">Your Ultimate Travel Guide to Northeast India</h1>
             <figure className="grid grid-cols-1 auto-rows-auto gap-[2svmin] grid-flow-dense justify-items-stretch items-stretch md:grid-cols-2 lg:grid-cols-4 lg:gap-[1svmin]">
-                { importedImages.map((image, index) => (
+                { data.map((image: any, index: number) => (
                     <div
                         key={ index }
-                        onClick={ () => openModal(image) }
+                        onClick={ () => openModal(image.image_path) }
                         className={ `cursor-pointer w-full aspect-[16/9] overflow-hidden
                             ${index + 1 === 11 ? "md:row-span-2" : ""}
                             ${[3, 12].includes(index + 1) ? "lg:row-span-2 lg:col-span-2" : ""}
                             ${index + 1 === 5 || index + 1 === 15 ? "lg:col-span-2" : ""}` }
                     >
                         <img
-                            src={ image }
+                            src={ image.image_path }
                             className="w-full h-full object-cover"
                             alt={ `Gallery Image ${index + 1}` }
                         />

@@ -15,8 +15,7 @@ export const Footer: React.FC = () => (
           </div>
 
           <p className="max-w-md mx-auto mt-6 leading-relaxed text-center  sm:max-w-xs sm:mx-0 sm:text-left">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-            consequuntur amet culpa cum itaque neque.
+            Kakali Travels is a premier travel agency dedicated to offering unforgettable journeys across Northeast India.
           </p>
 
           <ul className="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
@@ -66,12 +65,6 @@ export const Footer: React.FC = () => (
 
                 <li>
                   <a className=" transition hover:/75" href="/">
-                    Employee Handbook
-                  </a>
-                </li>
-
-                <li>
-                  <a className=" transition hover:/75" href="/">
                     Careers
                   </a>
                 </li>
@@ -86,25 +79,25 @@ export const Footer: React.FC = () => (
               <ul className="space-y-4 text-sm">
                 <li>
                   <a className=" transition hover:/75" href="/">
-                    Web Development
+                    Tour Packages
                   </a>
                 </li>
 
                 <li>
                   <a className=" transition hover:/75" href="/">
-                    Web Design
+                    Flight Booking
                   </a>
                 </li>
 
                 <li>
                   <a className=" transition hover:/75" href="/">
-                    Marketing
+                    Hotel Booking
                   </a>
                 </li>
 
                 <li>
                   <a className=" transition hover:/75" href="/">
-                    Google Ads
+                    Travel Insurance
                   </a>
                 </li>
               </ul>
@@ -118,23 +111,23 @@ export const Footer: React.FC = () => (
               <ul className="space-y-4 text-sm">
                 <li>
                   <a className=" transition hover:/75" href="/">
-                    FAQs
+                    Terms & Conditions
                   </a>
                 </li>
 
                 <li>
                   <a className=" transition hover:/75" href="/">
-                    Support
+                    Privacy Policy
                   </a>
                 </li>
 
                 <li>
                   <a
                     className="flex group justify-center sm:justify-start gap-1.5"
-                    href="/"
+                    href="/contact-us"
                   >
                     <span className=" transition group-hover:/75">
-                      Live Chat
+                      Contact Us
                     </span>
 
                     <span className="relative flex w-2 h-2 -mr-2">
@@ -171,7 +164,7 @@ export const Footer: React.FC = () => (
                     />
                   </svg>
 
-                  <span className=" transition group-hover:/75">
+                  <span className="transition group-hover:/75">
                     contact@kakalitravels.com
                   </span>
                 </a>
@@ -197,8 +190,8 @@ export const Footer: React.FC = () => (
                     />
                   </svg>
 
-                  <span className=" transition group-hover:/75">
-                    0123456789
+                  <span className="transition group-hover:/75">
+                    +91 9954977701
                   </span>
                 </a>
               </li>
@@ -224,8 +217,8 @@ export const Footer: React.FC = () => (
                   />
                 </svg>
 
-                <address className="-mt-0.5 not-italic ">
-                  213 Lane, London, United Kingdom
+                <address className="not-italic">
+                  Ward No 6,Bokakhat,Dist-Golagaht,785612
                 </address>
               </li>
             </ul>

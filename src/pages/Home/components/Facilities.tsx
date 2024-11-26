@@ -1,7 +1,10 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FacilityCard } from "../../../components/cards/FacilityCard";
-import { facilitiesData } from "../../../assets/data/data";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAmenities } from "../../../api/images-api";
+import { QUERY_KEYS } from "../../../utils/queryKeys";
+import { Loader } from "lucide-react";
 
 const Facilities = () => {
   const responsive = {
@@ -21,6 +24,14 @@ const Facilities = () => {
       partialVisibilityGutter: 30,
     },
   };
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: QUERY_KEYS.AMENITIES,
+    queryFn: fetchAmenities,
+  });
+
+  if (isLoading) return <div className="text-center mt-10"><Loader /></div>;
+  if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
 
   return (
     <div className="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-0">
@@ -54,7 +65,7 @@ const Facilities = () => {
           showDots={ false }
           slidesToSlide={ 1 }
         >
-          { facilitiesData.item.map((item) => (
+          { data?.map((item: any) => (
             <FacilityCard key={ item.id } item={ item } />
           )) }
         </Carousel>

@@ -37,10 +37,10 @@ const Contact: React.FC = () => {
                         <div className="col2 last">
                             <div className="sec2innercont">
                                 <div className="sec2addr mb-6">
-                                    <p>CR8R+GJR, Samaguri, Assam 782140</p>
-                                    <p><span className="text-gray-500 mr-2 inline-block">Phone:</span> +91 9999999999</p>
-                                    <p><span className="text-gray-500 mr-2 inline-block">Email:</span> contact.kakalitravels@gmail.com</p>
-                                    <p><span className="text-gray-500 mr-2 inline-block">Fax:</span> +91 97688xxxxx</p>
+                                    <p>Ward No 6,Bokakhat,Dist-Golagaht,785612</p>
+                                    <p><span className="text-gray-500 mr-2 inline-block">Phone:</span> +91 9954977701</p>
+                                    <p><span className="text-gray-500 mr-2 inline-block">Email:</span> contact@kakalitravels.com</p>
+                                    <p><span className="text-gray-500 mr-2 inline-block">Fax:</span> +91 9954977701</p>
                                 </div>
 
                                 <div className="sec2contactform mt-6">

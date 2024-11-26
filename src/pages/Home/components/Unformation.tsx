@@ -35,7 +35,7 @@ const Unformation = () => {
               className="flex items-center gap-2 text-2xl sm:text-3xl md:text-4xl font-bold text-white hover:text-white/90 transition-colors"
             >
               <Phone className="w-6 h-6 sm:w-8 sm:h-8" />
-              +1-123 456 7890
+              +91 9954977701
             </a>
           </div>
         </div>

@@ -2,25 +2,25 @@ import TestimonialCard from "../../../components/cards/TestimonialCard";
 
 const testimonials = [
   {
-    name: 'Timothy Quano',
-    position: 'Designer',
-    company: 'Symph',
-    testimonial: 'This product really helped my brand expand in a very manageable way. Would really use this for any future expansion.',
-    imageUrl: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    name: 'Kaju Saikia',
+    position: 'CTO',
+    company: 'Assam Adventure',
+    testimonial: 'Assam’s tea gardens and Kaziranga were amazing! The trip was well-organized and gave me a deep connection to the region.',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzwDcEwtWdCyIydwNaTUdtAzRN7fLmW7322A&s',
   },
   {
-    name: 'Jane Doe',
+    name: 'Devid Koch',
     position: 'CEO',
-    company: 'ANI',
-    testimonial: 'Scalability will never be an issue now for my brand!',
-    imageUrl: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    company: 'ANITEK',
+    testimonial: 'Meghalaya’s landscapes and culture blew me away. From living root bridges to waterfalls, it’s a hidden paradise',
+    imageUrl: 'https://scontent.fgau5-1.fna.fbcdn.net/v/t1.6435-9/54462886_150712802620832_5164993143203954688_n.jpg?stp=c0.87.526.526a_dst-jpg_p526x296&_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=pe-Qpl2VLmUQ7kNvgHg9oXF&_nc_zt=23&_nc_ht=scontent.fgau5-1.fna&_nc_gid=AgD5PNFchX8mSHLZXObgUkB&oh=00_AYBA7AYTdOBdS39W9pIDRB4aKh9gUa24vd8GfgzqlnarHg&oe=676CD024',
   },
   {
-    name: 'Rowen Smith',
+    name: 'Afreen Ahmed',
     position: 'CEO',
-    company: 'Golden Bowl',
-    testimonial: 'The product is really easy to use that I didn’t have to set up any training for my employees.',
-    imageUrl: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    company: 'Arunachal Pradesh Exploration',
+    testimonial: 'Arunachal Pradesh’s mountains and monasteries were unforgettable. The experience was truly unique and beautifully curated.',
+    imageUrl: 'https://scontent.fgau5-1.fna.fbcdn.net/v/t39.30808-6/431310793_1561510394634424_5138866839623774939_n.jpg?stp=dst-jpg_s600x600&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=d0jckNroTKEQ7kNvgGjjAt_&_nc_zt=23&_nc_ht=scontent.fgau5-1.fna&_nc_gid=AlAAIxRbUwC3OIR-EpthAoX&oh=00_AYAXidJJbkk5DXXN4m9tgMiLYWyor8G1h85GKKC4cSHM0Q&oe=674B575D',
   },
 ];
 
