@@ -16,6 +16,12 @@ export async function fetchAmenities()
   return response.data;
 }
 
+export async function fetchLocations()
+{
+  const response = await API.get("locations");
+  return response.data
+}
+
 // export async function fetchFilters(): Promise<IFilterData> {
 //   const response = await API.post("EmployeeManagement/master");
 //   return response.data;

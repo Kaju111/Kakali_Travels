@@ -3,5 +3,5 @@ export const QUERY_KEYS = {
   GALLERY_IMAGES: ['galleryImages'],
   AMENITIES: ['amenities'],
   GALLERY: ['gallery'],
-  LOCATION: ['location'],
+  LOCATIONS: ['locations'],
 };

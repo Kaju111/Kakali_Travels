@@ -4,6 +4,8 @@ import PromotionalBanners from './PromotionalBanners'
 import { DateRange } from 'react-date-range';
 import { useQuery } from '@tanstack/react-query';
 import { QUERY_KEYS } from '../../utils/queryKeys';
+import { fetchLocations } from '../../api/images-api';
+import Loader from '../common/loader/Loader';
 
 export default function PackageSearch() {
     const [isGuestOpen, setIsGuestOpen] = useState(false)
@@ -26,10 +28,12 @@ export default function PackageSearch() {
     // if (isLoading) return <div className="text-center mt-10"><Loader /></div>;
     // if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
 
-    const { } = useQuery({
-        queryKey: QUERY_KEYS.SLIDER_IMAGES,
-        queryFn: fet
+    const { data, isLoading, isError } = useQuery({
+        queryKey: QUERY_KEYS.LOCATIONS,
+        queryFn: fetchLocations,
     })
+    if (isLoading) return <div className="text-center mt-10"><Loader /></div>;
+    if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
 
     const guestDropdownRef = useRef<HTMLDivElement>(null)
     const dateRangeRef = useRef<HTMLDivElement>(null);
@@ -79,16 +83,17 @@ export default function PackageSearch() {
                                 <div className="flex items-center gap-2 px-4">
                                     <MapPin className="h-4 w-4 text-gray-400" />
                                     <select
-                                        className="w-full bg-transparent px-2 cursor-pointer py-2 outline-none placeholder:text-gray-400 text-sm sm:text-base"
+                                        className="w-full bg-transparent cursor-pointer py-2 outline-none placeholder:text-gray-400 text-sm sm:text-base"
                                         defaultValue=""
                                     >
                                         <option value="" disabled>
                                             Where are you going?
                                         </option>
-                                        <option value="new-york">New York</option>
-                                        <option value="paris">Paris</option>
-                                        <option value="tokyo">Tokyo</option>
-                                        <option value="sydney">Sydney</option>
+                                        { data?.map((location: any) => (
+                                            <option value={ location?.name }>
+                                                { location?.name }
+                                            </option>
+                                        )) }
                                     </select>
                                 </div>
                             </div>
