@@ -4,4 +4,5 @@ export const QUERY_KEYS = {
   AMENITIES: ['amenities'],
   GALLERY: ['gallery'],
   LOCATIONS: ['locations'],
+  SEARCH: ['search'],
 };

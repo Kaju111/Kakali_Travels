@@ -1,7 +1,7 @@
 import packageImg from "../../assets/images/packages/packages.jpg"
 import HeaderSection from "../../components/common/HeaderSection"
-// import Modal from "../../components/model"
 import PackageSearch from "../../components/packages/PackageSearch"
+import SearchCard from "../../components/packages/SearchCard"
 import CustomPackages from "./components/CustomPackages"
 import Destinations from "./components/Destinations"
 import Guides from "./components/Guides"
@@ -10,9 +10,12 @@ import Recommended from './components/Recommended'
 const index = () => {
     return (
         <div>
-            <HeaderSection img={ packageImg } title="Lets the journey begin" desc="Get the best prices" />
+            <HeaderSection img={packageImg} title="Lets the journey begin" desc="Get the best prices" />
             <PackageSearch />
-            {/* <Modal /> */ }
+            {/* <Card imgUrl="ldlldl" title="kdsjndcd" description="sdndkm" /> */}
+
+            <SearchCard image_path="ldlldl" name="kdsjndcd" description="sdndkm" location="fmkdlfm" price="1233"/>
+
             <Destinations />
             <Recommended />
             <Guides />

@@ -22,6 +22,15 @@ export async function fetchLocations()
   return response.data
 }
 
+
+export async function fetchSearch()
+{
+  const response = await API.post("packages/search");
+  return response.data
+}
+
+
+
 // export async function fetchFilters(): Promise<IFilterData> {
 //   const response = await API.post("EmployeeManagement/master");
 //   return response.data;
