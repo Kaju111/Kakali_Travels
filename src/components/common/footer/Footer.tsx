@@ -173,7 +173,7 @@ export const Footer: React.FC = () => (
               <li>
                 <a
                   className="flex items-center justify-center sm:justify-start gap-1.5 group"
-                  href="/"
+                  href="tel:+919954977701"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
