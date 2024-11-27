@@ -1,17 +1,7 @@
 import ImageGallery from '../../../components/ImageGallery';
-import { useEffect, useState } from "react"
-import axios from "axios"
 import { useQuery } from '@tanstack/react-query';
 import { fetchGalleryImages } from '../../../api/images-api';
 import { QUERY_KEYS } from '../../../utils/queryKeys';
-
-interface CarouselItem {
-  id: number;
-  title: string;
-  image_path: string;
-  sub_title: string;
-  imageUrl: string;
-}
 
 
 const Gallery: React.FC = () => {

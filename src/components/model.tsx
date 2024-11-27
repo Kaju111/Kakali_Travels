@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function Modal() {
     const [open, setOpen] = useState(false);
@@ -10,13 +10,13 @@ function Modal() {
         <div className='font-primary'>
             <button
                 className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
-                onClick={openModal}
+                onClick={ openModal }
                 aria-controls="basic-modal"
             >
                 Open Basic Modal
             </button>
 
-            {open && (
+            { open && (
                 <div
                     className="fixed inset-0 z-10 bg-gray-500 bg-opacity-75 flex items-center justify-center"
                     aria-labelledby="modal-title"
@@ -25,13 +25,13 @@ function Modal() {
                 >
                     <div
                         className="fixed inset-0"
-                        onClick={closeModal}
+                        onClick={ closeModal }
                     />
 
 
                     <div className="antialiased z-20">
 
-                        <div className="w-full bg-grey-lightest" style={{ paddingTop: "4rem" }}>
+                        <div className="w-full bg-grey-lightest" style={ { paddingTop: "4rem" } }>
                             <div className="container mx-auto py-8">
                                 <div className="w-5/6 lg:w-full mx-auto bg-white rounded shadow">
                                     <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">
@@ -79,7 +79,7 @@ function Modal() {
                                                 className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                                 id="number"
                                                 type="tel"
-                                                maxLength={10}
+                                                maxLength={ 10 }
                                                 placeholder="Your email address"
                                             />
                                         </div>
@@ -110,7 +110,7 @@ function Modal() {
 
                     </div>
                 </div>
-            )}
+            ) }
         </div>
     );
 }

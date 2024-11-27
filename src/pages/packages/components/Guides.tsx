@@ -42,40 +42,40 @@ const responsive = {
 const Guides = () => {
     return (
         <div className="max-w-6xl m-auto px-4 flex flex-col items-center justify-center font-primary">
-        <h1 className="font-secondary text-3xl pt-14">Stories, Tips, and Guides</h1>
+            <h1 className="font-secondary text-3xl pt-14">Stories, Tips, and Guides</h1>
 
-        <Carousel responsive={responsive} infinite={true} className="w-full py-10">
-            {guidesData.map((guide, index) => {
-                const colorClass = colorClasses[index % colorClasses.length];
-                const textColor = colorClass.split(' ')[0];
-                const bgColor = colorClass.split(' ')[1];
+            <Carousel responsive={ responsive } infinite={ true } className="w-full py-10 z-10">
+                { guidesData.map((guide, index) => {
+                    const colorClass = colorClasses[index % colorClasses.length];
+                    const textColor = colorClass.split(' ')[0];
+                    const bgColor = colorClass.split(' ')[1];
 
-                return (
-                    <div key={guide.id} className="box w-full p-4">
-                        <div className={`pro border shadow-md hover:shadow-lg transition-shadow flex flex-col ${bgColor}`}>
-                            <img
-                                src={guide.imgUrl}
-                                alt={guide.title}
-                                className="w-full h-64 object-cover"
-                            />
-                            <div className="des mt-4 p-4 flex-grow bg-white bg-opacity-90">
-                                <div className='flex items-center gap-1'>
-                                    <p className={`h-[5px] w-[5px] rounded-full ${bgColor}`}></p>
-                                    <h1 className={`uppercase text-xs font-semibold ${textColor}`}>
-                                        {guide.sec}
-                                    </h1>
+                    return (
+                        <div key={ guide.id } className="box w-full p-4">
+                            <div className={ `pro border shadow-md hover:shadow-lg transition-shadow flex flex-col ${bgColor}` }>
+                                <img
+                                    src={ guide.imgUrl }
+                                    alt={ guide.title }
+                                    className="w-full h-64 object-cover"
+                                />
+                                <div className="des mt-4 p-4 flex-grow bg-white bg-opacity-90">
+                                    <div className='flex items-center gap-1'>
+                                        <p className={ `h-[5px] w-[5px] rounded-full ${bgColor}` }></p>
+                                        <h1 className={ `uppercase text-xs font-semibold ${textColor}` }>
+                                            { guide.sec }
+                                        </h1>
+                                    </div>
+                                    <h4 className="font-secondary text-xl mt-2">{ guide.title }</h4>
+                                    <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                                        { guide.description }
+                                    </p>
                                 </div>
-                                <h4 className="font-secondary text-xl mt-2">{guide.title}</h4>
-                                <p className="text-gray-600 mt-2 text-sm leading-relaxed">
-                                    {guide.description}
-                                </p>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
-        </Carousel>
-    </div>
+                    );
+                }) }
+            </Carousel>
+        </div>
     );
 };
 

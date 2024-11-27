@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { MapPin, Search, Users, Minus, Plus, CalendarArrowUp, CalendarArrowDown } from 'lucide-react'
 import PromotionalBanners from './PromotionalBanners'
 import { DateRange } from 'react-date-range';
-import { useQuery } from '@tanstack/react-query';
-import { QUERY_KEYS } from '../../utils/queryKeys';
-import { fetchLocations } from '../../api/images-api';
-import Loader from '../common/loader/Loader';
+// import { useQuery } from '@tanstack/react-query';
+// import { QUERY_KEYS } from '../../utils/queryKeys';
+// import { fetchLocations } from '../../api/images-api';
+// import Loader from '../common/loader/Loader';
 
 export default function PackageSearch() {
     const [isGuestOpen, setIsGuestOpen] = useState(false)
@@ -28,12 +28,12 @@ export default function PackageSearch() {
     // if (isLoading) return <div className="text-center mt-10"><Loader /></div>;
     // if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
 
-    const { data, isLoading, isError } = useQuery({
-        queryKey: QUERY_KEYS.LOCATIONS,
-        queryFn: fetchLocations,
-    })
-    if (isLoading) return <div className="text-center mt-10"><Loader /></div>;
-    if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
+    // const { data, isLoading, isError } = useQuery({
+    //     queryKey: QUERY_KEYS.LOCATIONS,
+    //     queryFn: fetchLocations,
+    // })
+    // if (isLoading) return <div className="text-center mt-10"><Loader /></div>;
+    // if (isError) return <div className="text-center mt-10 text-red-500">Please Refresh The Page</div>;
 
     const guestDropdownRef = useRef<HTMLDivElement>(null)
     const dateRangeRef = useRef<HTMLDivElement>(null);
@@ -89,11 +89,18 @@ export default function PackageSearch() {
                                         <option value="" disabled>
                                             Where are you going?
                                         </option>
-                                        { data?.map((location: any) => (
-                                            <option value={ location?.name }>
-                                                { location?.name }
-                                            </option>
-                                        )) }
+                                        <option value="">Guwahati</option>
+                                        <option value="">Tezpur</option>
+                                        {/* { data && data.length > 0 ? (
+                                            data?.map((location: any) => (
+                                                <option key={ location.id } value={ location?.name }>
+                                                    { location?.name }
+                                                </option>
+                                            ))
+                                        ) : (
+                                            <option disabled>No locations available</option>
+
+                                        ) } */}
                                     </select>
                                 </div>
                             </div>
