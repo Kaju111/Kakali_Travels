@@ -1,4 +1,5 @@
 import API from ".";
+import { ContactFormValues } from "../utils/types";
 
 export async function fetchSliderImage() {
   const response = await API.get("slider-images");
@@ -22,16 +23,12 @@ export async function fetchLocations()
   return response.data
 }
 
+export const sendContactForm = async (data: ContactFormValues) => {
+    const response = await API.post('contact-form', data);
+    return response.data;
+};
 
-export async function fetchSearch()
-{
-  const response = await API.post("packages/search");
+export const fetchSearch = async (data: any) => {
+  const response = await API.post("packages/search",data);
   return response.data
 }
-
-
-
-// export async function fetchFilters(): Promise<IFilterData> {
-//   const response = await API.post("EmployeeManagement/master");
-//   return response.data;
-// }

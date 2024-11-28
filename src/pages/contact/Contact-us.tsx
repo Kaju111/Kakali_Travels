@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ContactImg from "../../assets/images/contact/contact.jpg";
 import HeaderSection from '../../components/common/HeaderSection';
+import { useMutation } from '@tanstack/react-query';
+import { sendContactForm } from '../../api/images-api';
+import toast from 'react-hot-toast';
+import { ContactFormValues } from '../../utils/types';
 
 
 const Contact: React.FC = () => {
+    const formRef = useRef<HTMLFormElement | null>(null);
+
+    const { mutate, isPending: mutating } = useMutation({
+        mutationFn: sendContactForm,
+        onSuccess(data) {
+            if (data?.success) {
+                toast.success(data?.message ?? "Submitted Successfully!");
+                formRef.current?.reset();
+            } else {
+                toast(data?.message ?? "Something went wrong!")
+            }
+        },
+        onError(error) {
+            toast.error(error.message);
+        },
+    })
+
+
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const data = Object.fromEntries(formData.entries()) as Record<string, string>;
+
+        const formValues: ContactFormValues = {
+            first_name: data.first_name || '',
+            last_name: data.last_name || '',
+            email: data.email || '',
+            contact_number: data.contact_number || ''
+        };
+        mutate(formValues);
+    };
+
     return (
         <div>
             <HeaderSection
@@ -45,20 +82,20 @@ const Contact: React.FC = () => {
 
                                 <div className="sec2contactform mt-6">
                                     <h3 className="sec2frmtitle text-xl mt-7 mb-4 pb-5 border-b border-gray-300">Want to Know More? Drop Us a Mail</h3>
-                                    <form action="">
+                                    <form ref={ formRef } onSubmit={ handleSubmit }>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="text" placeholder="First Name" />
-                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="text" placeholder="Last Name" />
+                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="text" name='first_name' placeholder="First Name" />
+                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="text" name='last_name' placeholder="Last Name" />
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="email" placeholder="Email" />
-                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" maxLength={ 10 } type="tel" placeholder="Contact Number" />
+                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" name='email' type="email" placeholder="Email" />
+                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" maxLength={ 10 } name='contact_number' type="tel" placeholder="Contact Number" />
                                         </div>
                                         <div>
-                                            <textarea className="w-full p-4 border border-gray-500 mb-3" rows={ 4 } placeholder="Your message here..."></textarea>
+                                            <textarea className="w-full p-4 border border-gray-500 mb-3" name='message' rows={ 4 } placeholder="Your message here..."></textarea>
                                         </div>
                                         <div className="flex justify-center">
-                                            <input className="py-2 px-20 bg-gray-700 text-white uppercase font-semibold cursor-pointer" type="submit" value="Send" />
+                                            <input className="py-2 px-20 bg-gray-700 text-white uppercase font-semibold cursor-pointer" type="submit" value={ mutating ? "Sending..." : "Send" } disabled={ mutating } />
                                         </div>
                                     </form>
                                 </div>
