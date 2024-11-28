@@ -26,7 +26,6 @@ const Contact: React.FC = () => {
     })
 
 
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -36,15 +35,18 @@ const Contact: React.FC = () => {
             first_name: data.first_name || '',
             last_name: data.last_name || '',
             email: data.email || '',
-            contact_number: data.contact_number || ''
+            contact_number: data.contact_number || '',
+            message: data.message || '' // Include the `message` field here
         };
+
         mutate(formValues);
     };
+
 
     return (
         <div>
             <HeaderSection
-                img={ ContactImg }
+                img={ContactImg}
                 title="Contact Us"
                 desc="Do you want to enquire about our pricing, currect offers and arrangements we can help with? Give us a callor send in your concerns through the form below"
             />
@@ -82,20 +84,20 @@ const Contact: React.FC = () => {
 
                                 <div className="sec2contactform mt-6">
                                     <h3 className="sec2frmtitle text-xl mt-7 mb-4 pb-5 border-b border-gray-300">Want to Know More? Drop Us a Mail</h3>
-                                    <form ref={ formRef } onSubmit={ handleSubmit }>
+                                    <form ref={formRef} onSubmit={handleSubmit}>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="text" name='first_name' placeholder="First Name" />
                                             <input className="py-2 px-4 border border-gray-500 mb-3 w-full" type="text" name='last_name' placeholder="Last Name" />
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <input className="py-2 px-4 border border-gray-500 mb-3 w-full" name='email' type="email" placeholder="Email" />
-                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" maxLength={ 10 } name='contact_number' type="tel" placeholder="Contact Number" />
+                                            <input className="py-2 px-4 border border-gray-500 mb-3 w-full" maxLength={10} name='contact_number' type="tel" placeholder="Contact Number" />
                                         </div>
                                         <div>
-                                            <textarea className="w-full p-4 border border-gray-500 mb-3" name='message' rows={ 4 } placeholder="Your message here..."></textarea>
+                                            <textarea className="w-full p-4 border border-gray-500 mb-3" name='message' rows={4} placeholder="Your message here..."></textarea>
                                         </div>
                                         <div className="flex justify-center">
-                                            <input className="py-2 px-20 bg-gray-700 text-white uppercase font-semibold cursor-pointer" type="submit" value={ mutating ? "Sending..." : "Send" } disabled={ mutating } />
+                                            <input className="py-2 px-20 bg-gray-700 text-white uppercase font-semibold cursor-pointer" type="submit" value={mutating ? "Sending..." : "Send"} disabled={mutating} />
                                         </div>
                                     </form>
                                 </div>

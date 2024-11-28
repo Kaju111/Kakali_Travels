@@ -10,9 +10,9 @@ function Modal({ open, setOpen }: ModalProps) {
 
     const [formData, setFormData] = useState({
         firstname: '',
-        lastname: '',
+        lastname:'',
         phone_number: '',
-        email: ''
+        email:''
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +25,13 @@ function Modal({ open, setOpen }: ModalProps) {
 
 
     const handleSubmit = () => {
+        localStorage.setItem('username', `${formData.firstname} ${formData.lastname}`);
+        localStorage.setItem('phone_number', formData.phone_number);
+        localStorage.setItem('email', formData.email)
 
+        setOpen(false);
+
+        console.log('Stored in localStorage:', formData);
     };
 
 
@@ -55,7 +61,7 @@ function Modal({ open, setOpen }: ModalProps) {
                             <div className="container mx-auto py-8">
                                 <div className="w-5/6 lg:w-full mx-auto bg-white rounded shadow">
                                     <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">
-                                        Book Now
+                                        Register for a free account
                                     </div>
                                     <div className="py-4 px-8">
                                         <div className="flex mb-4">
@@ -126,6 +132,7 @@ function Modal({ open, setOpen }: ModalProps) {
                                             />
                                         </div>
                                         <div className='flex items-center justify-center'>
+
                                             <button className='bg-gray-700 px-11 py-1 text-white' onClick={handleSubmit}>Submit</button>
                                         </div>
 

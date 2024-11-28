@@ -27,9 +27,9 @@ const Card: React.FC<CardProps> = ({ imgUrl, title, description }) => {
                     <p className="text-gray-600 mt-2 text-sm leading-relaxed">
                         {description}
                     </p>
-                    <button className="bg-gray-700 text-white py-1 px-10 mt-4">
+                    {/* <button className="bg-gray-700 text-white py-1 px-10 mt-4">
                         Book Now
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>

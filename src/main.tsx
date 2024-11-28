@@ -15,6 +15,7 @@ import { theme } from "./theme";
 import "./utils/style.css"
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+import LinkIcons from "./components/common/chatbox/linkIcons";
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
@@ -39,11 +40,12 @@ const store = createStore({
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <AuthProvider store={ store }>
-      <QueryClientProvider client={ queryClient }>
-        <ThemeProvider theme={ theme }>
+    <AuthProvider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
-          <RouterProvider router={ router } />
+          <RouterProvider router={router} />
+          <LinkIcons />
           <Toaster />
         </ThemeProvider>
       </QueryClientProvider>
