@@ -6,7 +6,6 @@ interface tags {
     value: string
 }
 
-
 interface CardProps {
     image_path: string;
     name: string;
