@@ -30,7 +30,6 @@ export interface ContactFormValues {
   last_name: string;
   email: string;
   contact_number: string;
-  message: string;
 }
 export interface GalleryStories {
   id: number;
