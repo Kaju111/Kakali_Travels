@@ -5,4 +5,5 @@ export const QUERY_KEYS = {
   GALLERY: ['gallery'],
   LOCATIONS: ['locations'],
   SEARCH: ['search'],
+  TOP_DESTINATION:['topDestination'],
 };

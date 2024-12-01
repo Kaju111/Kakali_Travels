@@ -23,6 +23,12 @@ export async function fetchLocations()
   return response.data
 }
 
+export async function fetchTopDestination()
+{
+  const response = await API.get("top-destinations");
+  return response.data;
+}
+
 export const sendContactForm = async (data: ContactFormValues) => {
     const response = await API.post('contact-form', data);
     return response.data;
