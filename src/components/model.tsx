@@ -25,7 +25,11 @@ function Modal({ open, setOpen }: ModalProps) {
 
 
     const handleSubmit = () => {
+        localStorage.setItem('username', `${formData.firstname} ${formData.lastname}`);
+        localStorage.setItem('phone_number', formData.phone_number);
+        localStorage.setItem('email', formData.email)
 
+        setOpen(false);
     };
 
 
@@ -36,7 +40,7 @@ function Modal({ open, setOpen }: ModalProps) {
         <div className='font-primary'>
 
 
-            {open && (
+            { open && (
                 <div
                     className="fixed inset-0 z-10 bg-gray-500 bg-opacity-75 flex items-center justify-center"
                     aria-labelledby="modal-title"
@@ -45,13 +49,13 @@ function Modal({ open, setOpen }: ModalProps) {
                 >
                     <div
                         className="fixed inset-0"
-                        onClick={closeModal}
+                        onClick={ closeModal }
                     />
 
 
                     <div className="antialiased z-20">
 
-                        <div className="w-full bg-grey-lightest" style={{ paddingTop: "4rem" }}>
+                        <div className="w-full bg-grey-lightest" style={ { paddingTop: "4rem" } }>
                             <div className="container mx-auto py-8">
                                 <div className="w-5/6 lg:w-full mx-auto bg-white rounded shadow">
                                     <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter">
@@ -70,8 +74,8 @@ function Modal({ open, setOpen }: ModalProps) {
                                                     className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                                     id="firstname"
                                                     type="text"
-                                                    value={formData.firstname}
-                                                    onChange={handleInputChange}
+                                                    value={ formData.firstname }
+                                                    onChange={ handleInputChange }
                                                     placeholder="Your first name"
                                                 />
                                             </div>
@@ -85,8 +89,8 @@ function Modal({ open, setOpen }: ModalProps) {
                                                 <input
                                                     className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                                     id="lastname"
-                                                    value={formData.lastname}
-                                                    onChange={handleInputChange}
+                                                    value={ formData.lastname }
+                                                    onChange={ handleInputChange }
                                                     type="text"
                                                     placeholder="Your last name"
                                                 />
@@ -103,9 +107,9 @@ function Modal({ open, setOpen }: ModalProps) {
                                                 className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                                 id="phone_number"
                                                 type="tel"
-                                                maxLength={10}
-                                                value={formData.phone_number}
-                                                onChange={handleInputChange}
+                                                maxLength={ 10 }
+                                                value={ formData.phone_number }
+                                                onChange={ handleInputChange }
                                                 placeholder="Your contact number"
                                             />
                                         </div>
@@ -119,14 +123,14 @@ function Modal({ open, setOpen }: ModalProps) {
                                             <input
                                                 className="appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                                                 id="email"
-                                                value={formData.email}
-                                                onChange={handleInputChange}
+                                                value={ formData.email }
+                                                onChange={ handleInputChange }
                                                 type="email"
                                                 placeholder="Your email address"
                                             />
                                         </div>
                                         <div className='flex items-center justify-center'>
-                                            <button className='bg-gray-700 px-11 py-1 text-white' onClick={handleSubmit}>Submit</button>
+                                            <button className='bg-gray-700 px-11 py-1 text-white' onClick={ handleSubmit }>Submit</button>
                                         </div>
 
                                     </div>
@@ -137,7 +141,7 @@ function Modal({ open, setOpen }: ModalProps) {
 
                     </div>
                 </div>
-            )}
+            ) }
         </div>
     );
 }

@@ -5,13 +5,15 @@ import LocalExperiences from "./components/LocalExperiences";
 import Testimonial from "./components/Testimonial";
 import Unformation from "./components/Unformation";
 import Recommended from '../packages/components/Recommended'
+import PackageSearch from "../../components/packages/PackageSearch";
 
 
 const Home = () => {
     return (
         <div>
             <HeroSection />
-            <Recommended />
+            <PackageSearch />
+            {/* <Recommended /> */ }
             <LocalExperiences />
             <Facilities />
             <Gallery />

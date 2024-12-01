@@ -18,7 +18,7 @@ type NavItem = NavItemWithChildren | NavItemWithoutChildren;
 const navItems: NavItem[] = [
     { href: "/", label: "home" },
     { href: "/gallery", label: "gallery" },
-    { href: "/packages", label: "packages" },
+    { href: "/about-us", label: "about us" },
     { href: "/contact-us", label: "Contact Us" },
 ];
 
@@ -106,7 +106,7 @@ export const Header: React.FC = () => {
                         </div>
 
                         <button className="border px-4 py-2 text-xs uppercase text-white font-semibold bg-gray-700">
-                            Reservation
+                            Book Now
                         </button>
                         <div className="md:hidden flex items-center">
                             <button
