@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { FacilityCardProps } from "../../utils/types";
 
 export const FacilityCard: React.FC<FacilityCardProps> = ({ item }) => (
@@ -10,15 +9,15 @@ export const FacilityCard: React.FC<FacilityCardProps> = ({ item }) => (
                 height={ 300 }
                 className="w-full h-96 object-cover" />
 
-            <div className="pt-6 h-32">
+            <div className="pt-6 h-36">
                 <h3 className="text-xl font-secondary">{ item.title }</h3>
-                <p className="text-sm mt-2 font-primary line-clamp-3">
+                <p className="text-sm mt-2 font-primary line-clamp-4">
                     { item.sub_title }
                 </p>
             </div>
-            <Link to={ item.read_more_link } className="mt-4 pt-2 border-b-black font-primary border-b-2 text-sm uppercase">
+            {/* <Link to={ item.read_more_link } className="mt-4 pt-2 border-b-black font-primary border-b-2 text-sm uppercase">
                 Read More
-            </Link>
+            </Link> */}
         </div>
     </div>
 );

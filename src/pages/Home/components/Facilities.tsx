@@ -41,15 +41,15 @@ const Facilities = () => {
       <section className="flex flex-col sm:flex-row justify-between items-center sm:items-start mt-4 sm:mt-6">
         <div className="w-full sm:w-3/4 lg:w-2/3">
           <h1 className="font-primary text-xs sm:text-sm w-full sm:w-[90%] py-5 text-center sm:text-left">
-            Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it.
+            At Kakali Travels, we believe that a great trip starts with the right amenities and facilities. From the moment you book with us, you'll experience a seamless and enjoyable journey. We offer a wide range of accommodations, from luxury resorts to comfortable budget-friendly hotels, ensuring a perfect stay for every type of traveler.
           </h1>
 
         </div>
-        <div className="w-full sm:w-auto flex justify-center sm:justify-end mt-4 sm:mt-0">
+        {/* <div className="w-full sm:w-auto flex justify-center sm:justify-end mt-4 sm:mt-0">
           <button className="uppercase font-primary text-xs font-semibold bg-gray-700 text-white py-2 px-6">
             view all
           </button>
-        </div>
+        </div> */}
       </section>
       <section>
         <Carousel
