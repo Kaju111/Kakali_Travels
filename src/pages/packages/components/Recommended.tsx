@@ -1,6 +1,5 @@
 import { useState } from "react"
 import Card from "../../../components/packages/Card"
-import { RecommendedCategory } from "../../../assets/data/data"
 import Img7 from "../../../assets/images/packages/cherry_blossom_in_shillong.png"
 import Img8 from "../../../assets/images/packages/majuli.jpg"
 import Img9 from "../../../assets/images/packages/meghalaya.png"
@@ -192,7 +191,7 @@ const Recommended = () => {
 
 
 
-    const [activeCategory, setActiveCategory] = useState('packages');
+    const [activeCategory,] = useState('packages');
 
     // Determine which data to display based on the active category
     const dataToDisplay = () => {
@@ -211,34 +210,21 @@ const Recommended = () => {
 
     return (
         <div className="max-w-6xl m-auto flex flex-col items-center justify-center font-primary">
-            <h1 className="font-secondary text-3xl pt-14">Our Services</h1>
+            <h1 className="font-secondary text-3xl pt-14">Packages</h1>
 
-            <div className="flex flex-wrap font-primary font-semibold text-base gap-5 pt-9 justify-center lg:justify-start">
-                { RecommendedCategory?.map((item) => (
-                    <button
-                        onClick={ () => setActiveCategory(item.name) }
-                        className={ `py-2 px-6 rounded-md capitalize ${activeCategory === item.name
-                            ? 'text-white bg-gray-700'
-                            : 'text-gray-700 border border-gray-700'
-                            }` }
-                    >
-                        { item.name }
-                    </button>
-                )) }
 
-            </div>
 
 
             <div className="container mx-auto py-6 flex flex-row flex-wrap justify-around items-center">
-                { dataToDisplay().map((destination) => (
+                {dataToDisplay().map((destination) => (
                     <Card
-                        key={ destination.id }
-                        imgUrl={ destination.imgUrl }
-                        title={ destination.title }
-                        description={ destination.description }
-                        docLink={ destination?.docLink }
+                        key={destination.id}
+                        imgUrl={destination.imgUrl}
+                        title={destination.title}
+                        description={destination.description}
+                        docLink={destination?.docLink}
                     />
-                )) }
+                ))}
             </div>
         </div>
     );

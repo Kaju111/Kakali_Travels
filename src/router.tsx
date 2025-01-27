@@ -5,6 +5,10 @@ import Home from "./pages/Home";
 import Contact from "./pages/contact/Contact-us";
 import Packages from "./pages/packages/index"
 import Gallery from "./pages/gallery/index";
+import Accommodation from "./pages/accommodation/Accommodation";
+import Rental from "./pages/rental/Rental";
+import Tickets from "./pages/tickets/Tickets";
+import AboutUs from "./pages/about/index";
 
 const router = createBrowserRouter([
   {
@@ -23,12 +27,28 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/about-us",
+        path: "/packages",
         element: <Packages />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
       },
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/accommodation",
+        element: <Accommodation />,
+      },
+      {
+        path: "/rental",
+        element: <Rental />,
+      },
+      {
+        path: "/tickets",
+        element: <Tickets />,
       },
       // {
       //   path: "success",
