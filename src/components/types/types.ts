@@ -16,3 +16,9 @@ export interface HeaderImagesProps {
     title: string;
     desc: string;
 }
+
+export interface OffersCardProps{
+  title: string, 
+  description: string, 
+  imgUrl: string
+}
